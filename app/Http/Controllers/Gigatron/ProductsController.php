@@ -9,7 +9,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $gigatronProducts = \App\Gigatron\Product::paginate(20)->load('brand');
+        $gigatronProducts = \App\Gigatron\Product::paginate(20);
 
         return view('gigatron.products.index', compact('gigatronProducts'));
     }
