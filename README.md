@@ -3,6 +3,22 @@
 1. Potrebno je napraviti novi Laravel projekat i sa linka https://gigatron.rs/prenosni-racunari/laptop-racunari (podatke uzeti iz JSON response) pokupiti sve laptopove i smestiti ih u bazu.
 2. Prikazati sve proizvode na posebnoj stranici sa paginacijom (20 proizvoda po stranici) - Može da se koristi Bootstrap (blade rendering) ili neki JS framework (VueJS ili ReactJS - Bonus)
 
+## Napomena
+  Sledeci koraci su bitni da se odrade kako bi aplikacija funkcionisala:
+    1. kreirati db i podesiti parametre u .env fajlu
+    2. php artisan migrate
+    3. php artisan retrieve-gigatron-data:run
+    4. php artisan serve
+    5. posetiti http://127.0.0.1:8000/
+
+    Korak br. 3, komanda preuzima podatke iz JSON resursa sa gigatron sajta (odeljak laptopovi) i upisuje ih u bazu.
+
+    Ono sto hocu da napomenem jeste da postoje 4 grane u ovom projektu.
+    1. "master" grana sadrzi back end funkcionalnosti ali ne i front end
+    2. "bootstrap+blade templates+pagination" grana sadrzi back end funkcionalnosti, kao i front end (blade templejti sa paginacijom)
+    3. "bootstrap+vuejs+pagination" grana sadrzi back end funkcionalnosti, kao i front end (VueJS sa paginacijom)
+    4. "bootstrap+reactjs+pagination" grana sadrzi back end funkcionalnosti, kao i front end (ReactJS sa paginacijom)                
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
