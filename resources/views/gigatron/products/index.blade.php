@@ -1,4 +1,5 @@
 @extends('master')
 @section('content')    
-  <!-- products -->
+  <div id="products-component" data-products="{{ json_encode($gigatronProducts) }}" >
+  </div>
 @endsection
