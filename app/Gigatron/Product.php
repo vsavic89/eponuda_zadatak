@@ -14,4 +14,8 @@ class Product extends Model
     
     public $incrementing = false;
 
+    public function brand()
+    {
+        return $this->belongsTo('\App\Gigatron\Brand', 'brand_id', 'id');
+    }
 }

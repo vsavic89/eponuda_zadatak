@@ -42,7 +42,8 @@ class InsertGigatronDataIntoDbAction {
         $ean,
         $name,
         $price,
-        $imageUrl
+        $imageUrl,
+        $brandId
     ){
         return \App\Gigatron\Product::updateOrCreate(
             [
@@ -53,7 +54,8 @@ class InsertGigatronDataIntoDbAction {
                 'ean' => $ean,
                 'name' => $name,
                 'price' => $price,
-                'image_url' => $imageUrl
+                'image_url' => $imageUrl,
+                'brand_id' => $brandId
             ]);
     } 
     
@@ -70,48 +72,27 @@ class InsertGigatronDataIntoDbAction {
                 'id' => $brandId,                
                 'name' => $brandName                
             ]);
-    }  
-
-    private function insertBrandProduct(
-        $brand,
-        $product
-    ){        
-
-        return \App\Gigatron\BrandProduct::updateOrCreate(
-            [
-                'brand_id' => $brand->id,
-                'product_id' => $product->id
-            ],
-            [
-                'brand_id' => $brand->id,
-                'product_id' => $product->id        
-            ]);
-    }  
+    }     
 
     private function insertDataIntoDb(
         $productId,
         $ean,
         $name,
-        $brand,
+        $brandName,
         $brandId,
         $price,
         $imageUrl
-    ){
-        $product = $this->insertProduct(
+    ){         
+        $this->insertProduct(
             $productId,
             $ean,
             $name,            
             $price,
-            $imageUrl
-        );                
-        
-        $brand = $this->insertBrand(
-            $brandId,
-            $brand
-        );            
-
-        if($product && $brand){                
-            $this->insertBrandProduct($brand, $product);
-        }
+            $imageUrl,
+            $this->insertBrand(
+                $brandId,
+                $brandName
+            )->id
+        );                              
     }
 }
