@@ -1,8 +1,8 @@
 @extends('master')
 @section('content')        
     @if(count($gigatronProducts) > 0)  
-        <h1>List of products</h1>
-        <table class="table table-responsive border">            
+        <h1>List of Gigatron products (laptops)</h1>
+        <table class="table border">            
             <tr>
                 <th>Image</th>
                 <th>Product Id</th>
